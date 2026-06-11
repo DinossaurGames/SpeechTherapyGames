@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Terapia da Fala - Jogos & Atividades</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Animated Kid-friendly Bubbles -->
+  <div class="bg-bubbles">
+    <div class="bubble" style="--x-pos: 12%; animation-delay: 0s;"></div>
+    <div class="bubble" style="--x-pos: 35%; animation-delay: 3s;"></div>
+    <div class="bubble" style="--x-pos: 55%; animation-delay: 1s;"></div>
+    <div class="bubble" style="--x-pos: 78%; animation-delay: 5s;"></div>
+    <div class="bubble" style="--x-pos: 90%; animation-delay: 2s;"></div>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand" style="position: relative;">
+        <svg class="mascot-svg" id="mascot-img" viewBox="0 0 100 100" onclick="app.clickMascot()" style="width: 95px; height: 95px; cursor: pointer; filter: drop-shadow(0 6px 0 rgba(0,0,0,0.1));">
+          <circle cx="50" cy="50" r="40" fill="var(--primary-light)" stroke="var(--primary)" stroke-width="3"/>
+          <ellipse cx="40" cy="45" rx="5" ry="8" fill="white"/>
+          <circle cx="40" cy="45" r="3" fill="black"/>
+          <ellipse cx="60" cy="45" rx="5" ry="8" fill="white"/>
+          <circle cx="60" cy="45" r="3" fill="black"/>
+          <path d="M 35 65 Q 50 80 65 65" fill="none" stroke="var(--primary-dark)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M 25 35 Q 35 25 45 35" fill="none" stroke="var(--accent-pink)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 75 35 Q 65 25 55 35" fill="none" stroke="var(--accent-pink)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="mascot-bubble" id="mascot-bubble">Olá! Vamos jogar?</div>
+      </div>
+      
+      <nav class="nav-menu">
+        <button class="nav-item active" onclick="app.switchView('intruso')">
+          <span class="nav-item-icon">🍎</span> O Intruso
+        </button>
+        <button class="nav-item" onclick="app.switchView('destapa')">
+          <span class="nav-item-icon">🟩</span> Destapa e Descobre
+        </button>
+        <button class="nav-item" onclick="app.switchView('constructor')">
+          <span class="nav-item-icon">🏖️</span> Criar Cenários
+        </button>
+        <button class="nav-item" onclick="app.switchView('roleta')">
+          <span class="nav-item-icon">🎡</span> Roleta de Caretas
+        </button>
+        <button class="nav-item" onclick="app.switchView('monstros')">
+          <span class="nav-item-icon">👾</span> Alimentar Monstros
+        </button>
+        <button class="nav-item" onclick="app.switchView('monstros_fonemas')">
+          <span class="nav-item-icon">👄</span> Monstros dos Fonemas
+        </button>
+        <button class="nav-item" onclick="app.switchView('memoria')">
+          <span class="nav-item-icon">🧠</span> Jogo da Memória
+        </button>
+        <button class="nav-item" onclick="app.switchView('detetive')">
+          <span class="nav-item-icon">🕵️</span> Detetive de Histórias
+        </button>
+        <button class="nav-item" onclick="app.switchView('comboio')">
+          <span class="nav-item-icon">🚂</span> Comboio de Sílabas
+        </button>
+        <button class="nav-item" onclick="app.switchView('sopa')">
+          <span class="nav-item-icon">🥣</span> Sopa de Letras
+        </button>
+        <button class="nav-item" onclick="app.switchView('trava_linguas')">
+          <span class="nav-item-icon">👅</span> Roda de Trava-Línguas
+        </button>
+        <button class="nav-item" onclick="app.switchView('flashcards')">
+          <span class="nav-item-icon">🃏</span> Flashcards
+        </button>
+        <button class="nav-item" onclick="app.switchView('caca_sons')">
+          <span class="nav-item-icon">👂</span> Caça aos Sons
+        </button>
+        <button class="nav-item" onclick="app.switchView('construtor_frases')">
+          <span class="nav-item-icon">🧱</span> Construtor de Frases
+        </button>
+        <button class="nav-item" onclick="app.switchView('corrida_carros')">
+          <span class="nav-item-icon">🏎️</span> Corrida de Carros
+        </button>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <button class="btn-admin" onclick="app.openAdminModal()">
+          <span>⚙️</span> Painel de Edição
+        </button>
+      </div>
+    </aside>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="game-title-container">
+          <h2 id="current-game-title" class="game-title">Bem-vindo</h2>
+          <span id="current-game-subtitle" class="game-subtitle">Escolha um jogo no painel esquerdo para começar.</span>
+        </div>
+        <div class="top-actions">
+          <!-- Star Reward Counter -->
+          <div class="star-counter-container" onclick="app.resetStars()" style="cursor: pointer;">
+            <span class="star-icon">⭐</span>
+            <span id="global-stars">0</span> Estrelas
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dynamic Game Viewport -->
+      <div class="game-viewport">
+        <div id="game-card-container" class="game-card-container">
+          <!-- Dynamic game interface will be loaded here -->
+        </div>
+      </div>
+      
+      <!-- Confetti & Celebration Overlay -->
+      <div id="celebration-overlay" class="celebration-overlay">
+        <div class="celebration-emoji">🎉</div>
+      </div>
+
+      
+    </main>
+    
+  </div>
+
+  <!-- Admin Modal (Custom Words Manager) -->
+  <div id="admin-modal" class="modal-overlay">
+    <div class="modal-window">
+      <header class="modal-header">
+        <h3 class="modal-title">⚙️ Painel de Edição & Palavras</h3>
+        <button class="modal-close" onclick="app.closeAdminModal()">&times;</button>
+      </header>
+      <div class="modal-body">
+        
+        <!-- Admin Navigation Tabs -->
+        <div class="admin-tabs">
+          <button class="admin-tab-btn active" id="tab-btn-palavras" onclick="app.switchAdminTab('palavras')">Palavras</button>
+          <button class="admin-tab-btn" id="tab-btn-cenarios" onclick="app.switchAdminTab('cenarios')">Cenários</button>
+          <button class="admin-tab-btn" id="tab-btn-caretas" onclick="app.switchAdminTab('caretas')">Caretas</button>
+          <button class="admin-tab-btn" id="tab-btn-historias" onclick="app.switchAdminTab('historias')">Histórias</button>
+          <button class="admin-tab-btn" id="tab-btn-travalinguas" onclick="app.switchAdminTab('travalinguas')">Trava-Línguas</button>
+          <button class="admin-tab-btn" id="tab-btn-verbs" onclick="app.switchAdminTab('verbs')">Verbos</button>
+        </div>
+
+        <!-- TAB 1: PALAVRAS -->
+        <div id="admin-tab-palavras" class="admin-tab-content active">
+          <form id="add-word-form" onsubmit="app.handleAddWord(event)">
+            <div class="form-group">
+              <label class="form-label" for="word-input">Palavra</label>
+              <input type="text" id="word-input" class="form-input" placeholder="Ex: Borboleta" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="syllable-input">Divisão Silábica</label>
+              <input type="text" id="syllable-input" class="form-input" placeholder="Ex: Bor-bo-le-ta" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="category-input">Categoria</label>
+              <select id="category-input" class="form-input" required onchange="app.handleCategorySelectChange()">
+                <!-- Populated dynamically in app.js -->
+              </select>
+            </div>
+            
+            <div id="new-category-wrapper" class="form-group" style="display: none;">
+              <label class="form-label" for="new-category-input" style="color: var(--accent-pink); font-weight: 800;">Nome da Nova Categoria</label>
+              <input type="text" id="new-category-input" class="form-input" placeholder="Ex: Vestuário">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="phoneme-input">Fonema Alvo</label>
+              <input type="text" id="phoneme-input" class="form-input" placeholder="Ex: B, R, LH, CH" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="image-input">Link da Imagem Real (URL)</label>
+              <input type="url" id="image-input" class="form-input" placeholder="Cole aqui o URL da imagem" required oninput="app.updateImagePreview()">
+            </div>
+
+            <!-- Image Crop/Zoom Editor -->
+            <div id="image-editor-wrapper" class="form-group" style="display:none;">
+              <label class="form-label">Ajustar Imagem <span style="font-weight:500;font-size:0.85rem;color:var(--text-muted);">(arrasta para reposicionar)</span></label>
+              <div style="display:flex; justify-content:center;">
+                <div id="image-preview-box" style="
+                  width: 180px; height: 180px;
+                  border: var(--app-border); border-radius: var(--border-radius-md);
+                  overflow: hidden; position: relative; cursor: grab;
+                  background: #f0f0f0;
+                  flex-shrink: 0;
+                ">
+                  <!-- img uses the EXACT same CSS as getImgStyle() in games -->
+                  <img id="image-preview-img" src="" alt="Preview"
+                    style="width:100%; height:100%; object-fit:cover; pointer-events:none; display:block;"
+                  />
+                </div>
+                <div style="margin-left:16px; flex:1; display:flex; flex-direction:column; justify-content:center; gap:14px;">
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:0.9rem; font-weight:700; white-space:nowrap; width:52px;">🔍 Zoom</span>
+                    <input type="range" id="image-zoom-slider" min="100" max="300" value="100"
+                      style="flex:1; cursor:pointer;"
+                      oninput="app.handleImageZoomChange(this.value)">
+                    <span id="image-zoom-label" style="font-size:0.9rem; font-weight:700; width:44px;">100%</span>
+                  </div>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <button type="button" onclick="app.resetImageEditor()" style="background:var(--primary-light); border:var(--app-border); border-radius:10px; padding:8px 14px; font-family:var(--font-primary); font-weight:700; font-size:0.85rem; cursor:pointer;">↺ Reset</button>
+                    <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600; line-height:1.3; display:flex; align-items:center;">👆 Arrasta a imagem<br>para reposicionar</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Hidden inputs storing crop state -->
+              <input type="hidden" id="image-x" value="50">
+              <input type="hidden" id="image-y" value="50">
+              <input type="hidden" id="image-zoom" value="100">
+            </div>
+            
+            <button type="submit" class="btn-action" style="width: 100%;">Adicionar Palavra</button>
+          </form>
+          
+          <div class="admin-word-table-wrapper">
+            <h4 style="margin-bottom: 12px; font-weight: 800;">Palavras Registadas</h4>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Imagem</th>
+                  <th>Palavra</th>
+                  <th>Sílaba</th>
+                  <th>Categoria</th>
+                  <th>Fonema</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-words-tbody">
+                <!-- Word list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: CENÁRIOS -->
+        <div id="admin-tab-cenarios" class="admin-tab-content">
+          <form id="add-scene-form" onsubmit="app.handleAddScene(event)">
+            <h4 style="margin-bottom: 12px; font-weight: 800; color:var(--primary-dark)">Criar Novo Cenário</h4>
+            <div class="form-group">
+              <label class="form-label" for="scene-name-input">Nome do Cenário</label>
+              <input type="text" id="scene-name-input" class="form-input" placeholder="Ex: A Quinta" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="scene-bg-input">Link da Imagem de Fundo (URL)</label>
+              <input type="url" id="scene-bg-input" class="form-input" placeholder="URL do fundo" required>
+            </div>
+            <button type="submit" class="btn-action" style="width: 100%; margin-bottom: 24px;">Criar Cenário</button>
+          </form>
+
+          <form id="add-element-form" onsubmit="app.handleAddSceneElement(event)">
+            <h4 style="margin-bottom: 12px; font-weight: 800; color:var(--primary-dark)">Adicionar Elemento Arrastável</h4>
+            <div class="form-group">
+              <label class="form-label" for="element-scene-select">Escolher Cenário</label>
+              <select id="element-scene-select" class="form-input" required>
+                <!-- populated dynamically -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="element-name-input">Nome do Elemento</label>
+              <input type="text" id="element-name-input" class="form-input" placeholder="Ex: Cavalo" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="element-img-input">Link da Imagem Transparentes (URL)</label>
+              <input type="url" id="element-img-input" class="form-input" placeholder="URL da imagem transparente" required>
+            </div>
+            <button type="submit" class="btn-action" style="width: 100%;">Adicionar Elemento</button>
+          </form>
+
+          <div class="admin-word-table-wrapper">
+            <h4 style="margin-bottom: 12px; font-weight: 800;">Cenários Customizados</h4>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Fundo</th>
+                  <th>Nome</th>
+                  <th>Elementos</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-scenes-tbody">
+                <!-- Scenes list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: CARETAS -->
+        <div id="admin-tab-caretas" class="admin-tab-content">
+          <form id="add-careta-form" onsubmit="app.handleAddCareta(event)">
+            <h4 style="margin-bottom: 12px; font-weight: 800; color:var(--primary-dark)">Adicionar Ação à Roleta</h4>
+            <div class="form-group">
+              <label class="form-label" for="careta-text-input">Instrução / Pedido</label>
+              <input type="text" id="careta-text-input" class="form-input" placeholder="Ex: Manda um beijinho de estalo!" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="careta-emoji-input">Emoji Ilustrativo</label>
+              <input type="text" id="careta-emoji-input" class="form-input" placeholder="Ex: 💋" required maxlength="4">
+            </div>
+            <button type="submit" class="btn-action" style="width: 100%;">Adicionar à Roleta</button>
+          </form>
+
+          <div class="admin-word-table-wrapper">
+            <h4 style="margin-bottom: 12px; font-weight: 800;">Lista da Roleta</h4>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Emoji</th>
+                  <th>Ação</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-caretas-tbody">
+                <!-- Caretas list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 4: HISTÓRIAS -->
+        <div id="admin-tab-historias" class="admin-tab-content">
+          <form id="add-story-form" onsubmit="app.handleAddStory(event)">
+            <h4 style="margin-bottom: 12px; font-weight: 800; color:var(--primary-dark)">Criar Nova História</h4>
+            <div class="form-group">
+              <label class="form-label" for="story-name-input">Nome da História</label>
+              <input type="text" id="story-name-input" class="form-input" placeholder="Ex: Fazer um Bolo" required>
+            </div>
+
+            <h5 style="margin: 16px 0 8px 0; font-weight: 800;">Etapa 1 (Primeiro)</h5>
+            <div class="form-group">
+              <input type="text" id="story-step1-text" class="form-input" placeholder="Texto (Ex: Misturar os ingredientes)" required style="margin-bottom: 8px;">
+              <input type="url" id="story-step1-img" class="form-input" placeholder="URL da Imagem Real 1" required>
+            </div>
+
+            <h5 style="margin: 16px 0 8px 0; font-weight: 800;">Etapa 2 (Depois)</h5>
+            <div class="form-group">
+              <input type="text" id="story-step2-text" class="form-input" placeholder="Texto (Ex: Colocar a massa no forno)" required style="margin-bottom: 8px;">
+              <input type="url" id="story-step2-img" class="form-input" placeholder="URL da Imagem Real 2" required>
+            </div>
+
+            <h5 style="margin: 16px 0 8px 0; font-weight: 800;">Etapa 3 (Por Fim)</h5>
+            <div class="form-group">
+              <input type="text" id="story-step3-text" class="form-input" placeholder="Texto (Ex: Comer o bolo delicioso)" required style="margin-bottom: 8px;">
+              <input type="url" id="story-step3-img" class="form-input" placeholder="URL da Imagem Real 3" required>
+            </div>
+
+            <button type="submit" class="btn-action" style="width: 100%;">Criar História</button>
+          </form>
+
+          <div class="admin-word-table-wrapper">
+            <h4 style="margin-bottom: 12px; font-weight: 800;">Histórias Customizadas</h4>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Etapas</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-stories-tbody">
+                <!-- Stories list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 5: TRAVA-LÍNGUAS -->
+        <div id="admin-tab-travalinguas" class="admin-tab-content">
+          <form id="add-trava-form" onsubmit="app.handleAddTrava(event)">
+            <h4 style="margin-bottom: 12px; font-weight: 800; color:var(--primary-dark)">Adicionar Trava-Línguas</h4>
+            <div class="form-group">
+              <label class="form-label" for="trava-text-input">Texto do Trava-Línguas</label>
+              <textarea id="trava-text-input" class="form-input" placeholder="Ex: O rato roeu a rolha da garrafa..." required rows="3" style="font-family:inherit; font-size:inherit; padding:12px; border:3px solid #2C2643; border-radius:18px; width:100%;"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="trava-emoji-input">Emoji Ilustrativo</label>
+              <input type="text" id="trava-emoji-input" class="form-input" placeholder="Ex: 🐀" required maxlength="4">
+            </div>
+            <button type="submit" class="btn-action" style="width: 100%;">Adicionar Trava-Línguas</button>
+          </form>
+
+          <div class="admin-word-table-wrapper">
+            <h4 style="margin-bottom: 12px; font-weight: 800;">Trava-Línguas Registados</h4>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Emoji</th>
+                  <th>Texto</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-travalinguas-tbody">
+                <!-- Trava-línguas list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 6: VERBOS -->
+        <div id="admin-tab-verbs" class="admin-tab-content">
+          <form id="add-verb-form" onsubmit="app.handleAddVerb(event)">
+            <h4 style="margin-bottom: 12px; font-weight: 800; color:var(--primary-dark)">Adicionar Verbo de Ação</h4>
+            <div class="form-group">
+              <label class="form-label" for="verb-text-input">Verbo + Emoji (Ex: "corre para 🏃")</label>
+              <input type="text" id="verb-text-input" class="form-input" placeholder="Ex: corre para 🏃" required>
+            </div>
+            <button type="submit" id="submit-verb-btn" class="btn-action" style="width: 100%;">Adicionar Verbo</button>
+          </form>
+
+          <div class="admin-word-table-wrapper">
+            <h4 style="margin-bottom: 12px; font-weight: 800;">Verbos Registados</h4>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Verbo de Ação</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-verbs-tbody">
+                <!-- Verbs list -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action btn-secondary" onclick="app.exportDatabase()" style="background-color: #E6F7FF; color: var(--accent-blue); border-color: var(--accent-blue);">📥 Exportar JSON</button>
+        <button class="btn-action btn-secondary" onclick="app.triggerImportDatabase()" style="margin-right: auto; background-color: #E8FDF5; color: var(--accent-mint); border-color: var(--accent-mint);">📤 Importar JSON</button>
+        <input type="file" id="admin-import-file" accept=".json" style="display: none;" onchange="app.importDatabase(event)">
+        <button class="btn-action btn-secondary" onclick="app.closeAdminModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Database and Logic -->
+  <script src="dados.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
