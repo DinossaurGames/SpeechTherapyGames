@@ -129,3 +129,14 @@ const DEFAULT_VERBS = [
   "dorme na 💤",
   "brinca com 🧸"
 ];
+
+const DEFAULT_CATEGORIES = [
+  { nome: "Animais", emoji: "🦁" },
+  { nome: "Comida", emoji: "🍏" },
+  { nome: "Roupa", emoji: "👕" },
+  { nome: "Transportes", emoji: "🚗" },
+  { nome: "Objetos", emoji: "🔑" },
+  { nome: "Brinquedos", emoji: "🧸" },
+  { nome: "Instrumentos", emoji: "🥁" },
+  { nome: "Corpo", emoji: "👃" }
+];

@@ -14,6 +14,7 @@ class SpeechTherapyApp {
 
     this.isInitializing = false;
     this.words = [];
+    this.categories = [];
     this.caretaActions = [];
     this.scenes = {};
     this.sequences = [];
@@ -22,8 +23,14 @@ class SpeechTherapyApp {
     this.currentView = 'landing';
     this.stars = 0;
     
+    // Repetition history tracking
+    this.recentWordsHistory = [];
+    this.recentCategories = [];
+    this.recentSequencesHistory = [];
+    
     // Editing States
     this.editingWordIdx = null;
+    this.editingCategoryIdx = null;
     this.editingVerbIdx = null;
     this.editingSceneKey = null;
     this.editingCaretaIdx = null;
@@ -61,6 +68,7 @@ class SpeechTherapyApp {
       localStorage.setItem('custom_sequences', JSON.stringify(DEFAULT_SEQUENCES));
       localStorage.setItem('custom_trava_linguas', JSON.stringify(DEFAULT_TRAVA_LINGUAS));
       localStorage.setItem('custom_verbs', JSON.stringify(DEFAULT_VERBS));
+      localStorage.setItem('custom_categories', JSON.stringify(DEFAULT_CATEGORIES));
       localStorage.setItem('app_initialised_v2', 'true');
       localStorage.setItem('custom_db_last_updated', '0'); // Default low timestamp
     }
@@ -69,6 +77,9 @@ class SpeechTherapyApp {
     }
     if (!localStorage.getItem('custom_verbs')) {
       localStorage.setItem('custom_verbs', JSON.stringify(DEFAULT_VERBS));
+    }
+    if (!localStorage.getItem('custom_categories')) {
+      localStorage.setItem('custom_categories', JSON.stringify(DEFAULT_CATEGORIES));
     }
     this.isInitializing = false;
   }
@@ -92,6 +103,7 @@ class SpeechTherapyApp {
         this.sequences = data.sequences || [];
         this.travaLinguas = data.trava_linguas || [];
         this.verbs = data.verbs || [];
+        this.categories = data.categories || [];
         
         localStorage.setItem('custom_words', JSON.stringify(this.words));
         localStorage.setItem('custom_caretas', JSON.stringify(this.caretaActions));
@@ -99,6 +111,7 @@ class SpeechTherapyApp {
         localStorage.setItem('custom_sequences', JSON.stringify(this.sequences));
         localStorage.setItem('custom_trava_linguas', JSON.stringify(this.travaLinguas));
         localStorage.setItem('custom_verbs', JSON.stringify(this.verbs));
+        localStorage.setItem('custom_categories', JSON.stringify(this.categories));
         localStorage.setItem('custom_db_last_updated', serverTime.toString());
         localStorage.setItem('app_initialised_v2', 'true');
         
@@ -108,6 +121,7 @@ class SpeechTherapyApp {
         this.populateCategoriesDropdown();
         this.renderAdminWordsTable();
         this.renderAdminVerbsTable();
+        this.renderAdminCategoriesTable();
         this.renderAdminCaretasTable();
         this.renderAdminSequencesTable();
         this.renderAdminTravaTable();
@@ -127,6 +141,7 @@ class SpeechTherapyApp {
       localStorage.removeItem('app_initialised_v2');
       localStorage.removeItem('custom_trava_linguas');
       localStorage.removeItem('custom_verbs');
+      localStorage.removeItem('custom_categories');
       localStorage.removeItem('custom_db_last_updated');
       this.initializeLocalStorage();
       this.loadAllData();
@@ -143,6 +158,7 @@ class SpeechTherapyApp {
     this.sequences = JSON.parse(localStorage.getItem('custom_sequences') || '[]');
     this.travaLinguas = JSON.parse(localStorage.getItem('custom_trava_linguas') || '[]');
     this.verbs = JSON.parse(localStorage.getItem('custom_verbs') || '[]');
+    this.categories = JSON.parse(localStorage.getItem('custom_categories') || '[]');
   }
 
   loadStars() {
@@ -225,6 +241,7 @@ class SpeechTherapyApp {
     if (tabName === 'historias') this.renderAdminStoriesTable();
     if (tabName === 'travalinguas') this.renderAdminTravaTable();
     if (tabName === 'verbs') this.renderAdminVerbsTable();
+    if (tabName === 'categories') this.renderAdminCategoriesTable();
   }
 
   // Navigation controller
@@ -364,30 +381,61 @@ class SpeechTherapyApp {
 
   loadIntrusoRound(container) {
     const categories = [...new Set(this.words.map(w => w.categoria))];
-    const targetCategory = categories[Math.floor(Math.random() * categories.length)];
     
-    const sameCatWords = this.words.filter(w => w.categoria === targetCategory);
-    const diffCatWords = this.words.filter(w => w.categoria !== targetCategory);
-    
-    if (sameCatWords.length < 3 || diffCatWords.length < 1) {
-      container.innerHTML = `<p style="text-align:center; padding: 40px;">Adicione mais palavras no painel administrativo para jogar!</p>`;
-      return;
+    // Try to find categories with >= 3 words and at least 1 word in other categories
+    const validCategories = categories.filter(cat => {
+      const sameCount = this.words.filter(w => w.categoria === cat).length;
+      const diffCount = this.words.filter(w => w.categoria !== cat).length;
+      return sameCount >= 3 && diffCount >= 1;
+    });
+
+    let targetCategory = null;
+    let chosenSame = [];
+    let chosenIntruder = null;
+
+    if (validCategories.length > 0) {
+      targetCategory = this.getRandomAvoidingRecentCategory(validCategories);
+      const sameCatWords = this.words.filter(w => w.categoria === targetCategory);
+      const diffCatWords = this.words.filter(w => w.categoria !== targetCategory);
+      
+      const shuffledSame = this.shuffleWordsAvoidingRecent(sameCatWords);
+      chosenSame = shuffledSame.slice(0, 3);
+      chosenIntruder = this.getRandomAvoidingRecent(diffCatWords);
+    } else {
+      // Fallback: If no single category has 3 words, but we have at least 4 words in total
+      if (this.words.length >= 4) {
+        const shuffledAll = this.shuffleWordsAvoidingRecent(this.words);
+        chosenSame = shuffledAll.slice(0, 3);
+        chosenIntruder = shuffledAll[3];
+        targetCategory = chosenSame[0].categoria;
+      } else {
+        container.innerHTML = `<p style="text-align:center; padding: 40px;">Adicione mais palavras no painel administrativo para jogar!</p>`;
+        return;
+      }
     }
 
-    const chosenSame = this.shuffle(sameCatWords).slice(0, 3);
-    const chosenIntruder = diffCatWords[Math.floor(Math.random() * diffCatWords.length)];
+    // Track chosen words in repetition history
+    [...chosenSame, chosenIntruder].forEach(w => {
+      if (!this.recentWordsHistory.includes(w.palavra)) {
+        this.recentWordsHistory.push(w.palavra);
+      }
+    });
+    if (this.recentWordsHistory.length > 12) {
+      this.recentWordsHistory = this.recentWordsHistory.slice(-12);
+    }
+
     const options = this.shuffle([...chosenSame, chosenIntruder]);
     
     container.innerHTML = `
-      <div style="display:flex; flex-direction:column; align-items:center; gap:20px; flex-grow:1;">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; flex-grow:1; height:100%;">
         <h4 style="font-size:1.3rem; font-weight:800; color:var(--primary-dark); text-align:center;">
           Qual destas figuras NÃO pertence ao grupo das "${targetCategory}"?
         </h4>
         <div class="intruso-grid">
           ${options.map((word) => `
             <div class="intruso-card" onclick="app.handleIntrusoClick(this, '${word.palavra}', '${chosenIntruder.palavra}')">
-              <div class="square-img-wrapper" style="width: 100%; aspect-ratio: 1; border: none;">
-                <img class="intruso-image" src="${word.imagem}" alt="${word.palavra}" style="${app.getImgStyle(word)}">
+              <div class="intruso-card-img-wrapper">
+                <img src="${word.imagem}" alt="${word.palavra}" style="${app.getImgStyle(word)}">
               </div>
               <div class="intruso-label">${word.palavra}</div>
             </div>
@@ -418,7 +466,7 @@ class SpeechTherapyApp {
       container.innerHTML = `<p style="text-align:center; padding: 40px;">Sem palavras disponíveis.</p>`;
       return;
     }
-    const randWord = this.words[Math.floor(Math.random() * this.words.length)];
+    const randWord = this.getRandomAvoidingRecent(this.words);
     this.destapaState.word = randWord;
     
     container.innerHTML = `
@@ -956,18 +1004,14 @@ class SpeechTherapyApp {
 
     const activeMonsters = chosenMonsters.map((m, idx) => {
       const category = chosenCategories[idx];
-      const emojiMap = {
-        'Comida': '🍏', 'Roupa': '👕', 'Animais': '🦁', 'Transportes': '🚗',
-        'Objetos': '🔑', 'Brinquedos': '🧸', 'Instrumentos': '🥁', 'Corpo': '👃'
-      };
-      const emoji = emojiMap[category] || '📦';
+      const emoji = this.getCategoryEmoji(category);
       return { id: m.id, name: m.name, category: category, rule: `${category} ${emoji}` };
     });
 
     // Pick a target category from the selected monsters
     const selectedMonster = activeMonsters[Math.floor(Math.random() * activeMonsters.length)];
     const items = this.words.filter(w => w.categoria === selectedMonster.category);
-    const targetWord = items[Math.floor(Math.random() * items.length)];
+    const targetWord = this.getRandomAvoidingRecent(items);
 
     container.innerHTML = `
       <div style="display:flex; flex-direction:column; align-items:center; flex-grow:1; width:100%;">
@@ -1131,7 +1175,7 @@ class SpeechTherapyApp {
 
     const targetPhoneme = chosenPhonemes[Math.floor(Math.random() * chosenPhonemes.length)];
     const items = this.words.filter(w => w.fonema === targetPhoneme);
-    const targetWord = items[Math.floor(Math.random() * items.length)];
+    const targetWord = this.getRandomAvoidingRecent(items);
 
     container.innerHTML = `
       <div style="display:flex; flex-direction:column; align-items:center; flex-grow:1; width:100%;">
@@ -1337,7 +1381,7 @@ class SpeechTherapyApp {
       container.innerHTML = `<p style="text-align:center; padding:40px;">Crie histórias no Painel Administrativo.</p>`;
       return;
     }
-    const seq = this.sequences[Math.floor(Math.random() * this.sequences.length)];
+    const seq = this.getRandomAvoidingRecentSequence(this.sequences);
     const scrambled = this.shuffle([...seq.etapas]);
     
     container.innerHTML = `
@@ -1551,7 +1595,7 @@ class SpeechTherapyApp {
       return;
     }
     
-    const word = validWords[Math.floor(Math.random() * validWords.length)];
+    const word = this.getRandomAvoidingRecent(validWords);
     const syllables = word.silabas.split('-');
     
     this.comboioState.targetWord = word;
@@ -1720,7 +1764,7 @@ class SpeechTherapyApp {
       return;
     }
     
-    const word = this.words[Math.floor(Math.random() * this.words.length)];
+    const word = this.getRandomAvoidingRecent(this.words);
     const wordLetters = word.palavra.toUpperCase().split('');
     
     this.sopaState.targetWord = word;
@@ -1752,7 +1796,6 @@ class SpeechTherapyApp {
             <div class="square-img-wrapper" style="width: min(180px, 20vh); aspect-ratio: 1; border: none; margin-bottom: 8px; position: relative;">
               <img src="${word.imagem}" alt="${word.palavra}" style="${app.getImgStyle(word)}">
             </div>
-            <span>${word.palavra}</span>
           </div>
           
           <div class="sopa-slots-row">
@@ -2126,14 +2169,115 @@ class SpeechTherapyApp {
     });
   }
 
+  handleAddCategory(event) {
+    event.preventDefault();
+    const name = document.getElementById('category-name-input').value.trim();
+    const emoji = document.getElementById('category-emoji-input').value.trim() || '📦';
+    if (!name) return;
+
+    const catData = { nome: name, emoji: emoji };
+
+    if (this.editingCategoryIdx !== null && this.editingCategoryIdx !== undefined) {
+      const oldName = this.categories[this.editingCategoryIdx].nome;
+      this.words.forEach(w => {
+        if (w.categoria === oldName) {
+          w.categoria = name;
+        }
+      });
+      localStorage.setItem('custom_words', JSON.stringify(this.words));
+      
+      this.categories[this.editingCategoryIdx] = catData;
+      this.editingCategoryIdx = null;
+      const btn = document.getElementById('submit-category-btn');
+      if (btn) btn.innerText = "Adicionar Categoria";
+      this.showMascotBubble("Categoria atualizada!");
+    } else {
+      const exists = this.categories.some(c => c.nome.toLowerCase() === name.toLowerCase());
+      if (exists) {
+        alert("Já existe uma categoria com este nome!");
+        return;
+      }
+      this.categories.push(catData);
+      this.showMascotBubble("Nova categoria adicionada!");
+    }
+
+    localStorage.setItem('custom_categories', JSON.stringify(this.categories));
+    this.renderAdminCategoriesTable();
+    document.getElementById('add-category-form').reset();
+    this.populateCategoriesDropdown();
+    this.renderAdminWordsTable();
+    this.switchView(this.currentView);
+  }
+
+  editCategory(idx) {
+    this.editingCategoryIdx = idx;
+    const cat = this.categories[idx];
+    document.getElementById('category-name-input').value = cat.nome;
+    document.getElementById('category-emoji-input').value = cat.emoji;
+    const btn = document.getElementById('submit-category-btn');
+    if (btn) btn.innerText = "Guardar Alterações ✏️";
+    document.getElementById('admin-tab-categories').scrollTop = 0;
+  }
+
+  deleteCategory(idx) {
+    if (confirm("Tens a certeza que desejas apagar esta categoria?")) {
+      const catName = this.categories[idx].nome;
+      
+      this.categories.splice(idx, 1);
+      
+      if (this.editingCategoryIdx === idx) {
+        this.editingCategoryIdx = null;
+        const btn = document.getElementById('submit-category-btn');
+        if (btn) btn.innerText = "Adicionar Categoria";
+        document.getElementById('add-category-form').reset();
+      } else if (this.editingCategoryIdx > idx) {
+        this.editingCategoryIdx--;
+      }
+
+      let wordsModified = false;
+      this.words.forEach(w => {
+        if (w.categoria === catName) {
+          w.categoria = "Objetos";
+          wordsModified = true;
+        }
+      });
+      if (wordsModified) {
+        localStorage.setItem('custom_words', JSON.stringify(this.words));
+        this.renderAdminWordsTable();
+      }
+
+      localStorage.setItem('custom_categories', JSON.stringify(this.categories));
+      this.renderAdminCategoriesTable();
+      this.populateCategoriesDropdown();
+      this.showMascotBubble("Categoria eliminada.");
+      this.switchView(this.currentView);
+    }
+  }
+
+  renderAdminCategoriesTable() {
+    const tbody = document.getElementById('admin-categories-tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    this.categories.forEach((cat, idx) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-size: 1.8rem;">${cat.emoji}</td>
+        <td><strong>${cat.nome}</strong></td>
+        <td>
+          <button class="btn-delete" style="background:var(--accent-blue); margin-right:6px;" onclick="app.editCategory(${idx})">Editar</button>
+          <button class="btn-delete" onclick="app.deleteCategory(${idx})">Apagar</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
   populateCategoriesDropdown() {
     const select = document.getElementById('category-input');
     if (!select) return;
     
-    const defaults = ["Animais", "Comida", "Roupa", "Transportes", "Objetos", "Brinquedos", "Instrumentos", "Corpo"];
-    const currentCats = this.words.map(w => w.categoria).filter(Boolean);
-    const allCats = [...new Set([...defaults, ...currentCats])];
-    
+    const allCats = this.categories.map(c => c.nome);
     const currentVal = select.value;
     
     select.innerHTML = allCats.map(cat => `<option value="${cat}">${this.getCategoryEmoji(cat)} ${cat}</option>`).join('') + 
@@ -2179,14 +2323,24 @@ class SpeechTherapyApp {
     
     if (category === '__NEW__') {
       const newCatInput = document.getElementById('new-category-input');
+      const newCatEmojiInput = document.getElementById('new-category-emoji-input');
       const newCat = newCatInput.value.trim();
+      const newCatEmoji = newCatEmojiInput ? newCatEmojiInput.value.trim() || '📦' : '📦';
       if (!newCat) {
         alert("Por favor escreva o nome da nova categoria.");
         return;
       }
       category = newCat;
       newCatInput.value = '';
+      if (newCatEmojiInput) newCatEmojiInput.value = '';
       document.getElementById('new-category-wrapper').style.display = 'none';
+
+      // Auto-register the new category with the custom emoji if it doesn't exist yet
+      const catExists = this.categories.some(c => c.nome.toLowerCase() === category.toLowerCase());
+      if (!catExists) {
+        this.categories.push({ nome: category, emoji: newCatEmoji });
+        localStorage.setItem('custom_categories', JSON.stringify(this.categories));
+      }
     }
     
     const phoneme = document.getElementById('phoneme-input').value.trim().toUpperCase();
@@ -2381,11 +2535,9 @@ class SpeechTherapyApp {
   }
 
   getCategoryEmoji(category) {
-    const emojiMap = {
-      'Comida': '🍏', 'Roupa': '👕', 'Animais': '🦁', 'Transportes': '🚗',
-      'Objetos': '🔑', 'Brinquedos': '🧸', 'Instrumentos': '🥁', 'Corpo': '👃'
-    };
-    return emojiMap[category] || '📦';
+    if (!category) return '📦';
+    const cat = this.categories.find(c => c.nome.toLowerCase() === category.toLowerCase());
+    return cat ? cat.emoji : '📦';
   }
 
   // TAB 2: Scenes
@@ -2665,6 +2817,52 @@ class SpeechTherapyApp {
     return copy;
   }
 
+  getRandomAvoidingRecent(array, maxHistorySize = 10) {
+    if (!array || array.length === 0) return null;
+    let candidates = array.filter(item => {
+      const val = typeof item === 'object' ? item.palavra : item;
+      return !this.recentWordsHistory.includes(val);
+    });
+    if (candidates.length === 0) {
+      candidates = array;
+    }
+    const picked = candidates[Math.floor(Math.random() * candidates.length)];
+    const val = typeof picked === 'object' ? picked.palavra : picked;
+    this.recentWordsHistory.push(val);
+    if (this.recentWordsHistory.length > maxHistorySize) {
+      this.recentWordsHistory.shift();
+    }
+    return picked;
+  }
+
+  getRandomAvoidingRecentCategory(validCategories) {
+    if (!this.recentCategories) this.recentCategories = [];
+    let candidates = validCategories.filter(cat => !this.recentCategories.includes(cat));
+    if (candidates.length === 0) candidates = validCategories;
+    const picked = candidates[Math.floor(Math.random() * candidates.length)];
+    this.recentCategories.push(picked);
+    if (this.recentCategories.length > 3) this.recentCategories.shift();
+    return picked;
+  }
+
+  getRandomAvoidingRecentSequence(sequencesArray, maxHistorySize = 3) {
+    if (!sequencesArray || sequencesArray.length === 0) return null;
+    let candidates = sequencesArray.filter(seq => !this.recentSequencesHistory.includes(seq.nome));
+    if (candidates.length === 0) candidates = sequencesArray;
+    const picked = candidates[Math.floor(Math.random() * candidates.length)];
+    this.recentSequencesHistory.push(picked.nome);
+    if (this.recentSequencesHistory.length > maxHistorySize) {
+      this.recentSequencesHistory.shift();
+    }
+    return picked;
+  }
+
+  shuffleWordsAvoidingRecent(wordsArray) {
+    const nonRecent = this.shuffle(wordsArray.filter(w => !this.recentWordsHistory.includes(w.palavra)));
+    const recent = this.shuffle(wordsArray.filter(w => this.recentWordsHistory.includes(w.palavra)));
+    return [...nonRecent, ...recent];
+  }
+
   triggerCelebration(callback) {
     const overlay = document.getElementById('celebration-overlay');
     if (overlay) overlay.classList.add('active');
@@ -2697,6 +2895,7 @@ class SpeechTherapyApp {
     const exportData = {
       lastUpdated: exportTime,
       words: this.words,
+      categories: this.categories,
       caretas: this.caretaActions,
       scenes: this.scenes,
       sequences: this.sequences,
@@ -2736,6 +2935,7 @@ class SpeechTherapyApp {
         
         // Sync memory
         this.words = data.words;
+        this.categories = data.categories || [];
         this.caretaActions = data.caretas;
         this.scenes = data.scenes;
         this.sequences = data.sequences;
@@ -2746,6 +2946,7 @@ class SpeechTherapyApp {
         
         // Sync local storage
         localStorage.setItem('custom_words', JSON.stringify(this.words));
+        localStorage.setItem('custom_categories', JSON.stringify(this.categories));
         localStorage.setItem('custom_caretas', JSON.stringify(this.caretaActions));
         localStorage.setItem('custom_scenes', JSON.stringify(this.scenes));
         localStorage.setItem('custom_sequences', JSON.stringify(this.sequences));
@@ -2840,23 +3041,19 @@ class SpeechTherapyApp {
       return;
     }
     
-    const target = wordsWithPhoneme[Math.floor(Math.random() * wordsWithPhoneme.length)];
+    const target = this.getRandomAvoidingRecent(wordsWithPhoneme);
     const distractors = this.shuffle(this.words.filter(w => w.fonema !== target.fonema)).slice(0, 2);
     const choices = this.shuffle([target, ...distractors]);
     
     container.innerHTML = `
       <div class="caca-sons-container" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; width:100%; height:100%; box-sizing:border-box;">
-        <!-- Top Discrete Therapist Bar -->
-        <div class="therapist-discrete-bar" style="background: rgba(75, 163, 255, 0.08); border: 3px dashed var(--accent-blue); border-radius: 16px; padding: 12px 24px; font-size: 1.15rem; font-weight: 800; color: var(--text-main); text-align: center; width: 100%; box-sizing: border-box;">
-          📢 <span style="color: var(--accent-blue); text-transform: uppercase; margin-right: 4px;">Espaço do Terapeuta:</span> Faça oralmente o som do fonema 
-          <span style="color: var(--accent-pink); font-size: 1.8rem; font-weight: 950; margin-left: 4px; line-height: 1;">"${target.fonema}"</span>
+        
+        <div style="font-size: 2.2rem; font-weight: 950; color: var(--accent-pink); background: rgba(247, 141, 167, 0.1); border: 3.5px solid var(--accent-pink); border-radius: 24px; padding: 14px 40px; text-align: center; box-shadow: 0 5px 0 #2C2643; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+          Fonema: "${target.fonema}"
         </div>
         
         <!-- Visual choices for child -->
         <div class="caca-sons-choices-column" style="display:flex; flex-direction:column; align-items:center; gap: 20px; width: 100%; flex-grow:1; justify-content:center;">
-          <h4 style="font-size: 1.4rem; font-weight: 800; color: var(--primary-dark); margin: 0; text-align: center;">
-            Criança: Clica na imagem que começa com o som que ouviste!
-          </h4>
           <div class="caca-sons-grid" style="display: flex; gap: min(24px, 3vh); width: 100%; justify-content: center;">
             ${choices.map((w, idx) => `
               <div class="caca-sons-card ${w.palavra === target.palavra ? 'caca-correct-card' : ''}" 
@@ -3040,7 +3237,7 @@ class SpeechTherapyApp {
     // Randomly select question type (1: Syllables, 2: Start Letter, 3: Image Match)
     const types = [1, 2, 3];
     const qType = types[Math.floor(Math.random() * types.length)];
-    const word = this.words[Math.floor(Math.random() * this.words.length)];
+    const word = this.getRandomAvoidingRecent(this.words);
     
     let html = '';
     

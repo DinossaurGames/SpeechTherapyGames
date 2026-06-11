@@ -1,5 +1,5 @@
 {
-  "lastUpdated": 1781175427561,
+  "lastUpdated": 1781189015419,
   "words": [
     {
       "palavra": "Cão",
@@ -19,9 +19,9 @@
       "fonema": "G",
       "rima": "",
       "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1280px-Cat03.jpg",
-      "imageX": 37.222222222222214,
-      "imageY": 0.5555555555555607,
-      "imageZoom": 136
+      "imageX": 28.88888888888888,
+      "imageY": 9.444444444444443,
+      "imageZoom": 121
     },
     {
       "palavra": "Rato",
@@ -132,6 +132,745 @@
       "imageX": 85,
       "imageY": 48.888888888888886,
       "imageZoom": 100
+    },
+    {
+      "palavra": "Bola",
+      "silabas": "Bo-la",
+      "categoria": "Objetos",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1516567727245-ad8c68f3ec93?q=80&w=1049&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 37.22222222222222,
+      "imageY": 47.77777777777778,
+      "imageZoom": 110
+    },
+    {
+      "palavra": "Casa",
+      "silabas": "Ca-sa",
+      "categoria": "Objetos",
+      "fonema": "K",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1434082033009-b81d41d32e1c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 52.22222222222222,
+      "imageY": 97.22222222222223,
+      "imageZoom": 175
+    },
+    {
+      "palavra": "Mão",
+      "silabas": "Mão",
+      "categoria": "Corpo",
+      "fonema": "M",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1521668736539-d4d9927979ac?q=80&w=1090&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 39.44444444444445,
+      "imageY": 28.88888888888889,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Sol",
+      "silabas": "Sol",
+      "categoria": "Espaço",
+      "fonema": "S",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1588443193856-41bbcca787cf?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 50,
+      "imageY": 25,
+      "imageZoom": 222
+    },
+    {
+      "palavra": "Lua",
+      "silabas": "Lu-a",
+      "categoria": "Espaço",
+      "fonema": "L",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?q=80&w=1673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 43.333333333333336,
+      "imageY": 51.111111111111114,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Pão",
+      "silabas": "Pão",
+      "categoria": "Comida",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1598373182133-52452f7691ef?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 52.77777777777778,
+      "imageY": 54.44444444444444,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Flor",
+      "silabas": "Flor",
+      "categoria": "Plantas",
+      "fonema": "F",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1695556557825-97adbe470fd6?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 52.77777777777778,
+      "imageY": 18.88888888888889,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Mar",
+      "silabas": "Mar",
+      "categoria": "Planeta",
+      "fonema": "M",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1488278905738-514111aa236c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 47.77777777777778,
+      "imageY": 60.55555555555556,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Mesa",
+      "silabas": "Me-sa",
+      "categoria": "Objetos",
+      "fonema": "M",
+      "rima": "",
+      "imagem": "https://bestbuy-furniture.com/cdn/shop/files/d834a010-6409-4ed6-a6a0-78432215d837.jpg?v=1775844337",
+      "imageX": 56.666666666666664,
+      "imageY": 55.55555555555556,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Sapo",
+      "silabas": "Sa-po",
+      "categoria": "Animais",
+      "fonema": "S",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1700878205151-d28106f99719?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 50,
+      "imageY": 50,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Lobo",
+      "silabas": "Lo-bo",
+      "categoria": "Animais",
+      "fonema": "L",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1607350999170-b893fef057ea?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 35.55555555555556,
+      "imageY": 50.55555555555556,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Foca",
+      "silabas": "Fo-ca",
+      "categoria": "Animais",
+      "fonema": "F",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1618075254478-850bc1729c17?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 62.22222222222222,
+      "imageY": 62.777777777777786,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Vela",
+      "silabas": "Ve-la",
+      "categoria": "Objetos",
+      "fonema": "V",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1528351655744-27cc30462816?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 41.66666666666667,
+      "imageY": 100,
+      "imageZoom": 121
+    },
+    {
+      "palavra": "Mala",
+      "silabas": "Ma-la",
+      "categoria": "Objetos",
+      "fonema": "M",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1670888664952-efff442ec0d2?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 50,
+      "imageY": 50,
+      "imageZoom": 121
+    },
+    {
+      "palavra": "Cama",
+      "silabas": "Ca-ma",
+      "categoria": "Objetos",
+      "fonema": "K",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1180&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 52.77777777777778,
+      "imageY": 100,
+      "imageZoom": 125
+    },
+    {
+      "palavra": "Sino",
+      "silabas": "Si-no",
+      "categoria": "Objetos",
+      "fonema": "S",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1533047218705-9d453c0e39fb?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 85.55555555555557,
+      "imageY": 48.333333333333336,
+      "imageZoom": 128
+    },
+    {
+      "palavra": "Banana",
+      "silabas": "Ba-na-na",
+      "categoria": "Comida",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://nutritotal.com.br/publico-geral/wp-content/uploads/2019/12/shutterstock_375477457.jpg",
+      "imageX": 38.33333333333332,
+      "imageY": 100,
+      "imageZoom": 107
+    },
+    {
+      "palavra": "Cavalo",
+      "silabas": "Ca-va-lo",
+      "categoria": "Animais",
+      "fonema": "K",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1593179449458-e0d43d512551?q=80&w=982&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 55,
+      "imageY": 6.111111111111114,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Janela",
+      "silabas": "Ja-ne-la",
+      "categoria": "Objetos",
+      "fonema": "J",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1560873452-562278cc71e7?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 1.1111111111111143,
+      "imageY": 41.66666666666666,
+      "imageZoom": 128
+    },
+    {
+      "palavra": "Tomate",
+      "silabas": "To-ma-te",
+      "categoria": "Comida",
+      "fonema": "T",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1592841200221-a6898f307baa?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 55.55555555555556,
+      "imageY": 28.888888888888886,
+      "imageZoom": 126
+    },
+    {
+      "palavra": "Pipoca",
+      "silabas": "Pi-po-ca",
+      "categoria": "Comida",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1642520075943-b5ca77921357?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 47.77777777777777,
+      "imageY": 93.88888888888889,
+      "imageZoom": 134
+    },
+    {
+      "palavra": "Panela",
+      "silabas": "Pa-ne-la",
+      "categoria": "Objetos",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=1180&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 57.22222222222222,
+      "imageY": 75,
+      "imageZoom": 136
+    },
+    {
+      "palavra": "Grilo",
+      "silabas": "Gri-lo",
+      "categoria": "Animais",
+      "fonema": "G",
+      "rima": "",
+      "imagem": "https://files.agro20.com.br/uploads/2019/07/grilo-3.jpg",
+      "imageX": 35.55555555555556,
+      "imageY": 100,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Chocolate",
+      "silabas": "Cho-co-la-te",
+      "categoria": "Comida",
+      "fonema": "CH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1610450949065-1f2841536c88?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 100,
+      "imageY": 10.555555555555559,
+      "imageZoom": 113
+    },
+    {
+      "palavra": "Elefante",
+      "silabas": "E-le-fan-te",
+      "categoria": "Animais",
+      "fonema": "F",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1575187105891-be9b5d30cecd?q=80&w=986&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 38.888888888888886,
+      "imageY": 47.77777777777778,
+      "imageZoom": 127
+    },
+    {
+      "palavra": "Borboleta",
+      "silabas": "Bor-bo-le-ta",
+      "categoria": "Animais",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1533048324814-79b0a31982f1?q=80&w=1068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 26.111111111111114,
+      "imageY": 15.555555555555557,
+      "imageZoom": 117
+    },
+    {
+      "palavra": "Girassol",
+      "silabas": "Gi-ras-sol",
+      "categoria": "Plantas",
+      "fonema": "J",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/flagged/photo-1574711797910-33393469223c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 71.1111111111111,
+      "imageY": 82.22222222222223,
+      "imageZoom": 119
+    },
+    {
+      "palavra": "Abelha",
+      "silabas": "A-be-lha",
+      "categoria": "Animais",
+      "fonema": "LH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1568526381923-caf3fd520382?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 73.33333333333333,
+      "imageY": 83.33333333333333,
+      "imageZoom": 159
+    },
+    {
+      "palavra": "Galinha",
+      "silabas": "Ga-li-nha",
+      "categoria": "Animais",
+      "fonema": "NH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1588597989061-b60ad0eefdbf?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 15,
+      "imageY": 96.66666666666666,
+      "imageZoom": 124
+    },
+    {
+      "palavra": "Gelado",
+      "silabas": "Ge-la-do",
+      "categoria": "Comida",
+      "fonema": "J",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1718810125230-e8e2271354f5?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 52.77777777777778,
+      "imageY": 45.55555555555556,
+      "imageZoom": 124
+    },
+    {
+      "palavra": "Coelho",
+      "silabas": "Co-e-lho",
+      "categoria": "Animais",
+      "fonema": "LH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 62.22222222222222,
+      "imageY": 58.33333333333333,
+      "imageZoom": 112
+    },
+    {
+      "palavra": "Melancia",
+      "silabas": "Me-lan-ci-a",
+      "categoria": "Comida",
+      "fonema": "M",
+      "rima": "",
+      "imagem": "https://static.itdg.com.br/images/640-auto/54bf8fbd37fce61bb942efd9718ee9b5/shutterstock-2147092601.jpg",
+      "imageX": 6.666666666666668,
+      "imageY": 64.44444444444444,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Laranja",
+      "silabas": "La-ran-ja",
+      "categoria": "Comida",
+      "fonema": "J",
+      "rima": "",
+      "imagem": "https://laboiteagrains.com/cdn/shop/articles/orange_4766577e-b973-473f-8602-525cd66f6e3d.jpg?v=1745428912",
+      "imageX": 55.55555555555555,
+      "imageY": 12.777777777777779,
+      "imageZoom": 124
+    },
+    {
+      "palavra": "Pinguim",
+      "silabas": "Pin-gu-im",
+      "categoria": "Animais",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1712921674663-0bf5370a2ce7?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 25.55555555555556,
+      "imageY": 77.7777777777778,
+      "imageZoom": 113
+    },
+    {
+      "palavra": "Pé",
+      "silabas": "Pé",
+      "categoria": "Corpo",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1638859460750-181fcc7936a6?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 58.33333333333333,
+      "imageY": 53.888888888888886,
+      "imageZoom": 129
+    },
+    {
+      "palavra": "Orelha",
+      "silabas": "O-re-lha",
+      "categoria": "Corpo",
+      "fonema": "LH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1757041036433-e26807bda7be?q=80&w=963&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 36.11111111111111,
+      "imageY": 25.55555555555555,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Boca",
+      "silabas": "Bo-ca",
+      "categoria": "Corpo",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1654374504608-67c4cfe65fca?q=80&w=1065&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 46.666666666666664,
+      "imageY": 45,
+      "imageZoom": 125
+    },
+    {
+      "palavra": "Nariz",
+      "silabas": "Na-riz",
+      "categoria": "Corpo",
+      "fonema": "N",
+      "rima": "",
+      "imagem": "https://cdn.mos.cms.futurecdn.net/5HYdrDsenbowySwd8WnARf-1000-80.jpg",
+      "imageX": 44.44444444444444,
+      "imageY": 52.77777777777778,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Cometa",
+      "silabas": "Co-me-ta",
+      "categoria": "Espaço",
+      "fonema": "K",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1623284577359-a0130bb9a86d?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 50,
+      "imageY": 50,
+      "imageZoom": 157
+    },
+    {
+      "palavra": "Astronauta",
+      "silabas": "As-tro-nau-ta",
+      "categoria": "Espaço",
+      "fonema": "T",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=1018&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 48.888888888888886,
+      "imageY": 44.44444444444444,
+      "imageZoom": 145
+    },
+    {
+      "palavra": "Livro",
+      "silabas": "Li-vro",
+      "categoria": "Objetos",
+      "fonema": "V",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1553060146-71667aa3f223?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 50,
+      "imageY": 50,
+      "imageZoom": 112
+    },
+    {
+      "palavra": "Girafa",
+      "silabas": "Gi-ra-fa",
+      "categoria": "Animais",
+      "fonema": "J",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1561776267-444911d8a195?q=80&w=1088&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 17.77777777777778,
+      "imageY": 2.2222222222222214,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Leão",
+      "silabas": "Le-ão",
+      "categoria": "Animais",
+      "fonema": "L",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=1759&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 10,
+      "imageY": 10,
+      "imageZoom": 135
+    },
+    {
+      "palavra": "Formiga",
+      "silabas": "For-mi-ga",
+      "categoria": "Animais",
+      "fonema": "F",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1682488851014-140c7a7be1b9?q=80&w=1004&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 76.66666666666667,
+      "imageY": 43.333333333333336,
+      "imageZoom": 125
+    },
+    {
+      "palavra": "Faca",
+      "silabas": "Fa-ca",
+      "categoria": "Objetos",
+      "fonema": "F",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1704895291242-1e6f3e761c6b?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 45.55555555555556,
+      "imageY": 62.77777777777778,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Bicicleta",
+      "silabas": "Bi-ci-cle-ta",
+      "categoria": "Transportes",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1505705694340-019e1e335916?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 47.22222222222222,
+      "imageY": 55,
+      "imageZoom": 126
+    },
+    {
+      "palavra": "Barco",
+      "silabas": "Bar-co",
+      "categoria": "Transportes",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1599134432254-e8cbfb74f1ab?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 45.55555555555556,
+      "imageY": 30.555555555555557,
+      "imageZoom": 113
+    },
+    {
+      "palavra": "Pilha",
+      "silabas": "Pi-lha",
+      "categoria": "Objetos",
+      "fonema": "LH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1576834975354-ee694be1f0d1?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 48.888888888888886,
+      "imageY": 51.111111111111114,
+      "imageZoom": 179
+    },
+    {
+      "palavra": "Gomas",
+      "silabas": "Go-mas",
+      "categoria": "Comida",
+      "fonema": "G",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1600359756098-8bc52195bbf4?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 47.77777777777778,
+      "imageY": 55,
+      "imageZoom": 169
+    },
+    {
+      "palavra": "Óculos",
+      "silabas": "Ó-cu-los",
+      "categoria": "Objetos",
+      "fonema": "K",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 72.22222222222223,
+      "imageY": 60.55555555555556,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Urso",
+      "silabas": "Ur-so",
+      "categoria": "Animais",
+      "fonema": "S",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1568162603664-fcd658421851?q=80&w=1681&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 55.55555555555556,
+      "imageY": 25.000000000000004,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Peluche",
+      "silabas": "Pe-lu-che",
+      "categoria": "Brinquedos",
+      "fonema": "CH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1641085809270-71f722611ce1?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 46.11111111111111,
+      "imageY": 57.77777777777778,
+      "imageZoom": 122
+    },
+    {
+      "palavra": "Papagaio",
+      "silabas": "Pa-pa-gai-o",
+      "categoria": "Animais",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1612024782955-49fae79e42bb?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 5.555555555555554,
+      "imageY": 15,
+      "imageZoom": 116
+    },
+    {
+      "palavra": "Panda",
+      "silabas": "Pan-da",
+      "categoria": "Animais",
+      "fonema": "P",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1703248187251-c897f32fe4ec?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 76.66666666666666,
+      "imageY": 23.88888888888889,
+      "imageZoom": 114
+    },
+    {
+      "palavra": "Árvore",
+      "silabas": "Ár-vo-re",
+      "categoria": "Plantas",
+      "fonema": "V",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1458966480358-a0ac42de0a7a?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 49.44444444444444,
+      "imageY": 92.77777777777777,
+      "imageZoom": 156
+    },
+    {
+      "palavra": "Golfinho",
+      "silabas": "Gol-fi-nho",
+      "categoria": "Animais",
+      "fonema": "NH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1591706083700-cf05c6be75e2?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 47.77777777777778,
+      "imageY": 39.44444444444444,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Tubarão",
+      "silabas": "Tu-ba-rão",
+      "categoria": "Animais",
+      "fonema": "T",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1704694214588-24f4bae4757b?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 51.111111111111114,
+      "imageY": 27.22222222222222,
+      "imageZoom": 150
+    },
+    {
+      "palavra": "Tartaruga",
+      "silabas": "Tar-ta-ru-ga",
+      "categoria": "Animais",
+      "fonema": "T",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1585696862208-ca12defa3a78?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 55,
+      "imageY": 45.55555555555556,
+      "imageZoom": 124
+    },
+    {
+      "palavra": "Queijo",
+      "silabas": "Quei-jo",
+      "categoria": "Comida",
+      "fonema": "K",
+      "rima": "",
+      "imagem": "https://images.tcdn.com.br/img/img_prod/1049139/queijo_prato_fatiado_150g_d_or_603_1_d9a6770e63d8bc4319f8a61771adfb1d.jpg",
+      "imageX": 38.888888888888886,
+      "imageY": 52.77777777777778,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Cebola",
+      "silabas": "Ce-bo-la",
+      "categoria": "Comida",
+      "fonema": "S",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 41.66666666666667,
+      "imageY": 61.111111111111114,
+      "imageZoom": 118
+    },
+    {
+      "palavra": "Alho",
+      "silabas": "A-lho",
+      "categoria": "Comida",
+      "fonema": "LH",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1615477550927-6ec8445fcfe6?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 44.44444444444444,
+      "imageY": 46.666666666666664,
+      "imageZoom": 110
+    },
+    {
+      "palavra": "Batata",
+      "silabas": "Ba-ta-ta",
+      "categoria": "Comida",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 47.22222222222223,
+      "imageY": 40.55555555555556,
+      "imageZoom": 100
+    },
+    {
+      "palavra": "Balão",
+      "silabas": "Ba-lão",
+      "categoria": "Objetos",
+      "fonema": "B",
+      "rima": "",
+      "imagem": "https://images.unsplash.com/photo-1599627888307-1a2ff920709e?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageX": 44.44444444444444,
+      "imageY": 55.55555555555556,
+      "imageZoom": 117
+    }
+  ],
+  "categories": [
+    {
+      "nome": "Animais",
+      "emoji": "🦁"
+    },
+    {
+      "nome": "Comida",
+      "emoji": "🍏"
+    },
+    {
+      "nome": "Roupa",
+      "emoji": "👕"
+    },
+    {
+      "nome": "Transportes",
+      "emoji": "🚗"
+    },
+    {
+      "nome": "Objetos",
+      "emoji": "🔑"
+    },
+    {
+      "nome": "Brinquedos",
+      "emoji": "🧸"
+    },
+    {
+      "nome": "Instrumentos",
+      "emoji": "🥁"
+    },
+    {
+      "nome": "Corpo",
+      "emoji": "👃"
+    },
+    {
+      "nome": "Espaço",
+      "emoji": "🧑‍🚀"
+    },
+    {
+      "nome": "Plantas",
+      "emoji": "🪴"
+    },
+    {
+      "nome": "Planeta",
+      "emoji": "🌏"
     }
   ],
   "caretas": [
@@ -166,6 +905,58 @@
     {
       "texto": "Morde levemente o lábio inferior!",
       "emoji": "😬"
+    },
+    {
+      "texto": "Abrir a boca bem grande como se estivesse a dizer “AAAAA”",
+      "emoji": "😮"
+    },
+    {
+      "texto": "Fazer cara de surpresa e dizer “Óóóó”",
+      "emoji": "😲"
+    },
+    {
+      "texto": "Fingir que estás a bocejar lentamente",
+      "emoji": "😴"
+    },
+    {
+      "texto": "Fechar os lábios e fazer “mmm” como se estivesse a saborear comida boa",
+      "emoji": "😋"
+    },
+    {
+      "texto": "Fazer cara de peixinho com lábios para fora",
+      "emoji": "🐟"
+    },
+    {
+      "texto": "Mostrar a língua e tocar atrás dos dentes (como “la la la”)",
+      "emoji": "😛"
+    },
+    {
+      "texto": "Fazer “língua de cobra” para fora e para dentro",
+      "emoji": "🐍"
+    },
+    {
+      "texto": "Fingir que a língua é um relógio a mexer de um lado para o outro",
+      "emoji": "⏰"
+    },
+    {
+      "texto": "Sorriso grande mostrando os dentes como “ssss”",
+      "emoji": "😁"
+    },
+    {
+      "texto": "Sorrir e “fazer vento” entre os dentes como uma serpente",
+      "emoji": "🐍"
+    },
+    {
+      "texto": "Alternar sorriso grande e pequeno rápido",
+      "emoji": "😄"
+    },
+    {
+      "texto": "Fazer cara de leão a rugir (para “R” forte)",
+      "emoji": "🦁"
+    },
+    {
+      "texto": "Passar ar de uma bochecha para a outra como se fosse uma bolinha",
+      "emoji": "🎾"
     }
   ],
   "scenes": {
@@ -241,7 +1032,7 @@
   ],
   "trava_linguas": [
     {
-      "texto": "O rato roeu a rolha da garrafa do rei de Roma.",
+      "texto": "O rato roeu a rolha da garrafa do rei da Rússia.",
       "emoji": "🐀"
     },
     {
@@ -249,7 +1040,7 @@
       "emoji": "🐯"
     },
     {
-      "texto": "O aranha arranha a rã, a rã arranha o aranha.",
+      "texto": "A aranha arranha a rã, a rã arranha a aranha.",
       "emoji": "🕷️"
     },
     {
@@ -257,12 +1048,32 @@
       "emoji": "🦶"
     },
     {
-      "texto": "Sabia que o sábio sabia que o sabiá sabia assobiar?",
+      "texto": "O sabiá não sabia que o sábio sabia que o sabiá não sabia assobiar",
       "emoji": "🐦"
     },
     {
-      "texto": "Bagre branco, branco bagre, bagre preto, preto bagre.",
-      "emoji": "🐟"
+      "texto": "Debaixo da pia há um pinto que pia, quanto mais a pia pinga, mais o pinto pia.",
+      "emoji": "🐔"
+    },
+    {
+      "texto": "A vaca malhada foi molhada por outra vaca molhada e malhada.",
+      "emoji": "🐂"
+    },
+    {
+      "texto": "Rola, rola, rolha, na roda do carro.",
+      "emoji": "🚗"
+    },
+    {
+      "texto": "O padre Pedro pregou três pregos na porta preta.",
+      "emoji": "👨"
+    },
+    {
+      "texto": "O preto do prato de prata é preto porque é prato de preto.",
+      "emoji": "⚫"
+    },
+    {
+      "texto": "O rato riu do rato que riu do outro rato.",
+      "emoji": "🐀"
     }
   ],
   "verbs": [
