@@ -1229,11 +1229,10 @@ body {
 
 .card-front {
   background: white;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translate3d(0, 0, 0);
   overflow: hidden;
   isolation: isolate;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
-  transform: translate3d(0, 0, 0);
 }
 
 .memory-card.matched .card-front {
